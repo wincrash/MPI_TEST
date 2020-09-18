@@ -1,6 +1,6 @@
 #include <mpi.h>
 #include <boost/compute/system.hpp>
-
+#include <iostream>
 
 #include <unistd.h>
 
