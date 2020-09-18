@@ -13,6 +13,6 @@ find_package(MPI REQUIRED)
 include_directories(${MPI_INCLUDE_PATH})
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
+add_definitions(-DCL_TARGET_OPENCL_VERSION=120)
 add_executable(MPI_TEST main.cxx)
 target_link_libraries(MPI_TEST  -lOpenCL  ${MPI_LIBRARIES})
