@@ -1,0 +1,18 @@
+cmake_minimum_required(VERSION 3.5)
+
+project(MPI_TEST LANGUAGES CXX)
+
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+
+find_package(OpenCL)
+include_directories(${OpenCL_INCLUDE_DIR})
+
+find_package(MPI REQUIRED)
+include_directories(${MPI_INCLUDE_PATH})
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_executable(MPI_TEST main.cxx)
+target_link_libraries(MPI_TEST  -lOpenCL  ${MPI_LIBRARIES})
